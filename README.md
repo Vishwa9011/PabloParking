@@ -22,6 +22,6 @@ PabloParking
 
 # ✅ parking floors = parking floor
 
-# ✅ vehicle lane = "vehicleName" Lance
+# ✅ vehicle lane = "vehicleName" Lane
 
 # ✅ vehicle slot = slot
