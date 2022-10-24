@@ -1,0 +1,236 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;800&display=swap');
+
+* {
+     margin: 0;
+     padding: 0;
+     box-sizing: border-box;
+     font-family: 'Poppins', sans-serif;
+     scroll-padding-top: 5rem;
+     scroll-behavior: smooth;
+}
+
+body {
+     background: white;
+
+}
+
+
+html::-webkit-scrollbar {
+     width: 0.5rem;
+}
+
+html::-webkit-scrollbar-track {
+     background: transparent;
+}
+
+html::-webkit-scrollbar-thumb {
+     background: #ab1111;
+}
+
+#main {
+     width: 100%;
+     height: 100vh;
+
+     background-color: rgb(245, 240, 240);
+}
+
+#container {
+     height: 100%;
+     width: 95%;
+     display: flex;
+     margin: auto;
+}
+
+#main-left {
+     width: 40%;
+     /* border: 2px solid blue; */
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     /* background: url("./images/"); */
+}
+
+
+
+.welcome {
+     /* width: 80%; */
+     font-size: 50px;
+     font-weight: 800;
+     /* line-height: 10px; */
+}
+
+.welcome div {
+     font-size: 60px;
+}
+
+.welcome span {
+     color: #ab1111;
+}
+
+.welcome+div {
+     font-size: 1.2rem;
+     margin: 20px 0;
+}
+
+.app-store {
+     width: 100%;
+     display: flex;
+}
+
+.app-store div {
+     width: fit-content;
+}
+
+.app-store img {
+     width: 140px;
+     height: 46px;
+     margin-right: 10px;
+}
+
+
+/* /* ! main right */
+
+#main-right {
+     width: 60%;
+     /* border: 2px solid red; */
+     position: relative;
+     overflow: hidden;
+
+     /* display: flex; */
+}
+
+.image-bg {
+     width: 70%;
+     height: 100%;
+     position: absolute;
+     top: 50px;
+     left: 50%;
+     transform: translateX(-50%);
+     border-top-left-radius: 35px;
+     border-top-right-radius: 35px;
+     background-color: #28282B;
+     background-image: linear-gradient(151deg, #232524 25%, #ab1111 100%);
+}
+
+.jeep-img {
+     width: 85%;
+     position: absolute;
+     top: 50%;
+     left: 50%;
+     transform: translate(-50%, -50%);
+     z-index: 10;
+}
+
+
+.jeep-img img {
+     width: 100%;
+}
+
+/*  */
+
+/* ! Services */
+
+#services {
+     width: 95%;
+     margin: auto;
+     position: relative;
+     height: 500px;
+     margin-top: 30px;
+     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.services-head {
+     width: 100%;
+     font-size: 23px;
+     letter-spacing: 1px;
+     text-align: center;
+     color: #ab1111;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ! About */
+
+#about {
+     width: 100%;
+     margin-top: 30px;
+     position: relative;
+     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.about-head {
+     width: 100%;
+     text-align: center;
+}
+
+.about-head p:first-child {
+     color: #ab1111;
+     font-size: 1.4rem;
+     font-weight: 600;
+}
+
+.about-head p:last-child {
+     font-size: 2rem;
+     font-weight: 500;
+}
+
+.about-container1, .about-container2 {
+     width: 95%;
+     margin: auto;
+     padding: 30px 0;
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+}
+
+.about-left {
+     width: 40%;
+}
+
+.about-left img {
+     width: 100%;
+}
+
+.about-right {
+     width: 50%;
+     height: 100%;
+     text-align: justify;
+}
+
+.about-right>div:first-child {
+     width: 82%;
+}
+
+.about-right h1, .about-container2 .about-left h1 {
+     color: #333131;
+     font-size: 1.4rem;
+     font-weight: 600;
+     margin-bottom: 10px;
+}
+
+.about-container2 .about-right img {
+     width: 100%;
+
+}

@@ -25,3 +25,10 @@ PabloParking
 # ✅ vehicle lane = "vehicleName" Lane
 
 # ✅ vehicle slot = slot
+
+```
+# -------------------- UI Designing----------------------------
+
+## Logo on left side
+## nav-links => Home , About ,  Services, Contact Us
+```

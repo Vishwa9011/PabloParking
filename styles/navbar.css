@@ -1,0 +1,137 @@
+* {
+     margin: 0;
+     padding: 0;
+     box-sizing: border-box;
+}
+
+header {
+     width: 100%;
+     position: sticky;
+     background-color: rgb(245, 240, 240);
+     top: 0;
+     left: 0;
+     z-index: 999;
+}
+
+#navbar {
+     width: 95%;
+     height: 70px;
+     display: flex;
+     margin: auto;
+     justify-content: space-between;
+     align-items: center;
+}
+
+.nav-logo {
+     display: flex;
+     width: 20%;
+     /* padding-left: 20px; */
+}
+
+.nav-logo a {
+     display: flex;
+     width: 100%;
+     height: 100%;
+     text-decoration: none;
+     color: black;
+     font-weight: 700;
+     align-items: center;
+}
+
+
+#logo-txt {
+     font-size: 24px;
+     margin-left: 5px;
+     letter-spacing: 0.9px;
+}
+
+.nav-logo img {
+     width: 40px;
+     height: 40px;
+}
+
+.nav-link {
+     display: flex;
+     width: 42%;
+}
+
+.nav-link ul {
+     width: 100%;
+     display: flex;
+     justify-content: center;
+
+}
+
+.nav-link ul a {
+     width: 100%;
+     display: flex;
+     justify-content: center;
+     position: relative;
+     text-decoration: none;
+     color: rgb(23, 22, 22);
+     border-bottom: 2px solid transparent;
+}
+
+.nav-link ul a li {
+     display: flex;
+     justify-content: center;
+     position: relative;
+     list-style: none;
+     display: inline-block;
+     padding: 0 3px;
+     font-weight: 600;
+     letter-spacing: 1.2px;
+     font-size: 1.2rem;
+     padding: 8px 5px;
+}
+
+.nav-link ul a li::after {
+     width: 0%;
+     border-radius: 5px;
+     position: absolute;
+     content: "";
+     bottom: 0;
+     left: 0;
+     height: 3px;
+     background: rgb(190, 7, 7);
+     transition: 600ms;
+}
+
+.nav-link ul a li:hover:after {
+     width: 100%;
+}
+
+
+.nav-right-login {
+     width: 20%;
+     display: flex;
+     justify-content: flex-end;
+}
+
+.nav-right-login>a>button {
+     width: 100px;
+     letter-spacing: 1px;
+     border: none;
+     border-radius: 5px;
+     font-weight: 600;
+     padding: 6px 8px;
+     font-size: 17px;
+     background: transparent;
+     cursor: pointer;
+     transition: 800ms all ease;
+}
+
+.nav-right-login>a:not(:first-child)>button {
+     margin-left: 5px;
+     background: #ab1111;
+     color: white;
+}
+
+.nav-right-login>a>button:hover {
+     background: rgb(233, 231, 229);
+
+}
+
+.nav-right-login>a:not(:first-child)>button:hover {
+     background: #d32e2e;
+}
