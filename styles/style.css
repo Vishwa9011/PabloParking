@@ -114,7 +114,7 @@ html::-webkit-scrollbar-thumb {
 }
 
 .jeep-img {
-     width: 85%;
+     width: 100%;
      position: absolute;
      top: 50%;
      left: 50%;
@@ -133,9 +133,10 @@ html::-webkit-scrollbar-thumb {
 
 #services {
      width: 95%;
+     /* border: 1px solid red; */
      margin: auto;
      position: relative;
-     height: 500px;
+     /* height: 500px; */
      margin-top: 30px;
      font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
@@ -151,14 +152,184 @@ html::-webkit-scrollbar-thumb {
 
 
 
+#services-main {
+     width: 100%;
+     display: flex;
+}
+
+.form-container {
+     width: 40%;
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+}
+
+.form-enhancer {
+     width: 30%
+}
+
+.form-enhancer img {
+     width: 100%;
+}
 
 
 
+#form {
+     width: 80%;
+     margin: auto;
+     display: flex;
+     flex-direction: column;
+}
+
+.input-box {
+     width: 100%;
+     display: flex;
+     position: relative;
+}
+
+.input-box input {
+     width: 100%;
+     padding: 6px 13px;
+     font-size: 16px;
+     background: rgb(207, 202, 202);
+     outline: none;
+     border: none;
+     border-radius: 5px;
+     margin-bottom: 10px;
+     border: 1px solid #ffff;
+
+}
+
+.input-box input::placeholder {
+     color: black;
+}
+
+.input-box .select-text {
+     background: rgb(207, 202, 202);
+     padding: 6px 13px;
+     font-size: 16px;
+     width: 100%;
+     outline: none;
+     border: none;
+     border-radius: 5px;
+     margin-bottom: 10px;
+     border: 1px solid #ffff;
+     display: flex;
+     cursor: pointer;
+}
+
+#vehicleType:hover .select-text {
+     border: 1px solid #aaa;
+     background: white;
+}
+
+.input-box ul {
+     display: flex;
+     flex-direction: column;
+     position: absolute;
+     top: 85%;
+     left: 0;
+     width: 100%;
+     z-index: 10;
+     background: #ffff;
+     display: none;
+}
+
+.input-box ul li {
+     cursor: pointer;
+     background: rgb(189, 189, 189);
+     list-style: none;
+     padding: 4px 13px;
+     font-weight: 500;
+}
+
+.input-box ul li:nth-child(even) {
+     background: rgb(240, 237, 237);
+}
 
 
 
+#form input[type="button"] {
+     width: 100%;
+     padding: 6px 13px;
+     font-size: 16px;
+     background: rgb(23, 80, 236);
+     outline: none;
+     border: none;
+     border-radius: 5px;
+     color: white;
+     font-weight: 500;
+     transition: 600ms;
+     margin-bottom: 10px;
+     cursor: pointer;
+}
+
+#form input[type="button"]:hover {
+     background: #ab1111;
+}
+
+.input-box input:focus, .input-box .select-text:focus {
+     border: 1px solid #aaa;
+     background: white;
+}
 
 
+.parking-gif {
+     width: 60%;
+     display: flex;
+     justify-content: flex-end;
+}
+
+.parking-gif img {
+     border-radius: 25px;
+     width: 60%;
+
+}
+
+
+/* ! Parking */
+
+#parking {
+     padding: 5px;
+     border: 1px solid red;
+
+}
+
+#floor {
+     width: 70%;
+     padding: 5px;
+     display: flex;
+     border: 1px solid black
+}
+
+
+.lane {
+
+     display: flex;
+     flex-direction: column;
+
+     padding: 5px;
+     margin: 5px;
+     /* border: 1px solid blue; */
+}
+
+.slot {
+     width: 150px;
+     height: 110px;
+     margin-top: 10px;
+     transition: 800ms;
+     display: flex;
+     border-top: 1px solid orange;
+     border-bottom: 1px solid orange;
+     border-left: 1px solid orange;
+     padding: 0 5px;
+}
+
+
+.slot img {
+     width: 100%;
+     opacity: 0.2;
+}
 
 
 
@@ -187,7 +358,7 @@ html::-webkit-scrollbar-thumb {
 
 .about-head p:first-child {
      color: #ab1111;
-     font-size: 1.4rem;
+     font-size: 2rem;
      font-weight: 600;
 }
 
@@ -207,6 +378,7 @@ html::-webkit-scrollbar-thumb {
 
 .about-left {
      width: 40%;
+     text-align: justify;
 }
 
 .about-left img {
