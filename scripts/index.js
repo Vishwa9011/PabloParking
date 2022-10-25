@@ -136,7 +136,7 @@ function bookSlot(vehicle) {
 			`${vehicle.owner}, Sir You got Slot for your ${vehicle.type}`,
 		);
 		find.slot.isBooked = true;
-		localStorage.setItem("pp", JSON.stringify(pabloParking));
+		// localStorage.setItem("pp", JSON.stringify(pabloParking));
 		return find;
 	}
 }
@@ -175,6 +175,7 @@ const findSlot = () => {
 	const vehicle_type = type;
 
 	let temp = [name, reg_num, vehicle_type];
+	console.log("temp: ", temp);
 	if (temp.includes(undefined) || temp.includes("")) {
 		alert();
 		return;
@@ -199,9 +200,7 @@ const findSlot = () => {
 			break;
 	}
 	let val = bookSlot(vehicle);
-	console.log(val);
-	visualSearchParkingPlace(val.lane, val.floor, val.slot.vehicleType);
-	// colorBookedSlots(val);
+	colorBookedSlots(val);
 	localStorage.setItem("pabloParking", JSON.stringify(pabloParking));
 	// console.log({ name, reg_num, vehicle_type });
 };
@@ -211,65 +210,58 @@ const findSlot = () => {
 const visualSearchParkingPlace = (laneNumber, slotNumber, vehicleImg) => {
 	let lane = document.querySelector(`#lane${laneNumber}`);
 	lane = lane.children;
-	// lane = [...lane].reverse();
 	console.log({ lane });
-	let count = lane.length - 1;
+	let count = 0;
 	let id = setInterval(() => {
-		if (count === -1) {
-			lane[count + 1].style.background = "white";
-			count = lane.length - 1;
-		}
-		if (count < lane.length - 1) {
-			lane[count + 1].style.background = "white";
-		}
-		if (count == lane.length - slotNumber) {
-			clearInterval(id);
+		if (count > 0) {
+			lane[count - 1].style.background = "white";
 		}
 		lane[count].style.background = "cyan";
-		count--;
+		count++;
+		if (count == slotNumber) {
+			clearInterval(id);
+		}
 	}, 500);
-	let countlane = lane.length - 1;
+	let countlane = 0;
 	let id1 = setInterval(() => {
 		let val = lane[countlane].childNodes[1];
-		if (countlane == lane.length - slotNumber) {
-			val.src = `./images/${vehicleImg}.png`;
-			val.style.opacity = 1;
+		countlane++;
+		val.style.opacity = 1;
+		if (countlane == slotNumber) {
 			clearInterval(id1);
 		}
-		countlane--;
 	}, 800);
 };
 
-// visualSearchParkingPlace(4, 4, "Jeep");
+// visualSearchParkingPlace(4, 1, "Jeep");
 
 //*  -------------------------color BookedSlots-------------------------
 
 const colorBookedSlots = (data) => {
 	console.log("data: ", data);
+
+	console.log("data: ", data.floor);
+
 	console.log("pabloParking: ", pabloParking.totalFloor[0]);
-	for (let floor of pabloParking.totalFloor) {
-		let countlane = 1;
-		for (let lane of floor.floor) {
-			let countslot = 1;
-			for (let slot of lane.Lane) {
-				if (slot.isBooked) {
-					let temp = document.querySelector(`#lane${countlane}`);
-					temp = temp.children[countslot - 1].childNodes[1];
-					console.log("temp: ", temp);
-					let img = temp.src;
-					temp.style.opacity = "1";
-					temp.src = `./images/${slot.vehicleType}.png`;
-					console.log("img: ", img);
-				} else {
-					return;
-				}
-
-				countslot++;
+	0;
+	let countlane = 1;
+	for (let lane of pabloParking.totalFloor[data.floor - 1].floor) {
+		let countslot = 1;
+		for (let slot of lane.Lane) {
+			if (slot.isBooked) {
+				if (countlane == data.lane) continue;
+				let temp = document.querySelector(`#lane${countlane}`);
+				temp = temp.children[countslot - 1].childNodes[1];
+				temp.style.opacity = "1";
+				console.log(temp);
 			}
-			countlane++;
+			countslot++;
 		}
-		console.log(floor);
+		countlane++;
 	}
+	visualSearchParkingPlace(
+		data.lane,
+		data.slot.slotNumber,
+		data.slot.vehicleType,
+	);
 };
-
-colorBookedSlots(pabloParking);
