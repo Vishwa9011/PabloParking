@@ -201,11 +201,11 @@ html::-webkit-scrollbar-thumb {
 }
 
 .input-box input::placeholder {
-     color: black;
+     color: rgb(32, 29, 29);
 }
 
 .input-box .select-text {
-     background: rgb(207, 202, 202);
+     display: flex;
      padding: 6px 13px;
      font-size: 16px;
      width: 100%;
@@ -214,7 +214,7 @@ html::-webkit-scrollbar-thumb {
      border-radius: 5px;
      margin-bottom: 10px;
      border: 1px solid #ffff;
-     display: flex;
+     background: rgb(207, 202, 202);
      cursor: pointer;
 }
 
@@ -247,6 +247,10 @@ html::-webkit-scrollbar-thumb {
      background: rgb(240, 237, 237);
 }
 
+.input-box ul li:hover {
+     background: #b92727;
+     color: white;
+}
 
 
 #form input[type="button"] {
@@ -292,13 +296,14 @@ html::-webkit-scrollbar-thumb {
 #parking {
      padding: 5px;
      border: 1px solid red;
-
+     display: flex;
 }
 
 #floor {
      width: 70%;
      padding: 5px;
      display: flex;
+     justify-content: center;
      border: 1px solid black
 }
 
@@ -307,36 +312,53 @@ html::-webkit-scrollbar-thumb {
 
      display: flex;
      flex-direction: column;
-
      padding: 5px;
      margin: 5px;
      /* border: 1px solid blue; */
 }
 
 .slot {
-     width: 150px;
-     height: 110px;
+     width: 125px;
+     height: 90px;
      margin-top: 10px;
      transition: 800ms;
      display: flex;
      border-top: 1px solid orange;
      border-bottom: 1px solid orange;
      border-left: 1px solid orange;
-     padding: 0 5px;
+     justify-content: center;
 }
 
-
 .slot img {
-     width: 100%;
+     width: 80%;
      opacity: 0.2;
 }
 
+.parking-recipt {
+     width: 30%;
+}
+
+.recipt-container {
+     border: 1px solid red;
+     height: 300px;
+     width: 300px;
+     background: url(../images/augustine-wong-3Om4DHcaAc0-unsplash.jpg) no-repeat;
+     background-position: center;
+     background-size: cover;
+     padding-left: 20px;
+}
 
 
 
+.recipt-container div {
+     display: flex;
+     width: 100%;
+     margin-top: 20px;
+}
 
-
-
+.recipt-container div input {
+     width: 90%;
+}
 
 
 
