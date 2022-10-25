@@ -216,6 +216,7 @@ html::-webkit-scrollbar-thumb {
      border: 1px solid #ffff;
      background: rgb(207, 202, 202);
      cursor: pointer;
+     z-index: 11;
 }
 
 #vehicleType:hover .select-text {
@@ -223,7 +224,12 @@ html::-webkit-scrollbar-thumb {
      background: white;
 }
 
+#vehicleType {
+     transition: 1s;
+}
+
 .input-box ul {
+     width: 100%;
      display: flex;
      flex-direction: column;
      position: absolute;
@@ -232,6 +238,8 @@ html::-webkit-scrollbar-thumb {
      width: 100%;
      z-index: 10;
      background: #ffff;
+     height: fit-content;
+     transition: 600ms;
      display: none;
 }
 
@@ -257,7 +265,7 @@ html::-webkit-scrollbar-thumb {
      width: 100%;
      padding: 6px 13px;
      font-size: 16px;
-     background: rgb(23, 80, 236);
+     background: rgb(35, 86, 228);
      outline: none;
      border: none;
      border-radius: 5px;
@@ -266,10 +274,22 @@ html::-webkit-scrollbar-thumb {
      transition: 600ms;
      margin-bottom: 10px;
      cursor: pointer;
+     position: relative;
 }
 
 #form input[type="button"]:hover {
      background: #ab1111;
+}
+
+a[href="#parking"] {
+     position: relative;
+}
+
+#tukur {
+     position: absolute;
+     width: 34px;
+     top: 17%;
+     left: 59%;
 }
 
 .input-box input:focus, .input-box .select-text:focus {
@@ -291,11 +311,11 @@ html::-webkit-scrollbar-thumb {
 }
 
 
-/* ! Parking */
+/* * -----------Parking----------- */
 
 #parking {
      padding: 5px;
-     border: 1px solid red;
+     /* border: 1px solid red; */
      display: flex;
 }
 
@@ -304,16 +324,16 @@ html::-webkit-scrollbar-thumb {
      padding: 5px;
      display: flex;
      justify-content: center;
-     border: 1px solid black
+     /* border: 1px solid black */
 }
 
 
 .lane {
-
      display: flex;
      flex-direction: column;
      padding: 5px;
      margin: 5px;
+     margin-left: 20px;
      /* border: 1px solid blue; */
 }
 
@@ -323,10 +343,12 @@ html::-webkit-scrollbar-thumb {
      margin-top: 10px;
      transition: 800ms;
      display: flex;
-     border-top: 1px solid orange;
-     border-bottom: 1px solid orange;
-     border-left: 1px solid orange;
+     border-top: 2px solid #ab1111;
+     border-bottom: 2px solid #ab1111;
+     border-left: 2px solid #ab1111;
      justify-content: center;
+     border-top-left-radius: 10px;
+     border-bottom-left-radius: 10px;
 }
 
 .slot img {
@@ -334,34 +356,101 @@ html::-webkit-scrollbar-thumb {
      opacity: 0.2;
 }
 
+
+/* *------------ Receipt------------ */
 .parking-recipt {
      width: 30%;
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     justify-content: center;
 }
 
 .recipt-container {
-     border: 1px solid red;
-     height: 300px;
-     width: 300px;
+     /* border: 1px solid black; */
+     width: 80%;
      background: url(../images/augustine-wong-3Om4DHcaAc0-unsplash.jpg) no-repeat;
      background-position: center;
      background-size: cover;
-     padding-left: 20px;
+     padding: 20px;
+     border-radius: 15px;
+     box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
 }
 
 
+.recipt-container * {
+     white-space: nowrap;
+     font-family: 'Times New Roman', Times, serif;
+}
 
-.recipt-container div {
+.recipt-container h1 {
+     text-align: center;
+
+}
+
+
+.floor-slot, .recipt-date.recipt-date {
+     width: 100%;
+     display: flex;
+     justify-content: space-between;
+}
+
+
+.recipt-container>div {
      display: flex;
      width: 100%;
+     align-items: center;
+     font-weight: 500;
      margin-top: 20px;
 }
 
-.recipt-container div input {
-     width: 90%;
+.recipt-container span {
+     margin-left: 3px;
+     font-size: 17px;
+     font-weight: 600;
+}
+
+.promo {
+     width: 60%;
+}
+
+.promo-code {
+     padding: 3px;
+     background: #ffff;
+     border-radius: 5px;
+}
+
+.promo input {
+     width: 100%;
+     padding: 0 8px;
+     font-size: 16px;
+     border-radius: 5px;
+     border: none;
+     outline: none;
 }
 
 
+.apply_promo {
+     width: 40%;
+}
 
+.apply_promo button, .pay button {
+     width: 100%;
+     padding: 6px 10px;
+     font-size: 16px;
+     border-radius: 5px;
+     border: none;
+     outline: none;
+     background: rgb(23, 80, 236);
+     color: white;
+     font-weight: 600;
+     transition: 600ms;
+     cursor: pointer;
+}
+
+.apply_promo button:hover, .pay button:hover {
+     background: #c92323;
+}
 
 
 /* ! About */
