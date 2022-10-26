@@ -156,7 +156,6 @@ html::-webkit-scrollbar-thumb {
      width: 100%;
      display: flex;
      justify-content: space-between;
-     position: relative;
      /* align-items: center; */
 }
 
@@ -346,57 +345,7 @@ a {
      padding: 5px;
      /* border: 1px solid red; */
      display: flex;
-     position: relative;
      margin-top: 30px;
-}
-
-
-/* * Overlay */
-
-
-.overlay-searching {
-     position: absolute;
-     top: 0;
-     left: 0;
-     width: 100%;
-     height: 100%;
-     z-index: 99;
-     display: flex;
-     justify-content: center;
-     align-items: center;
-     background: #181818b6;
-     display: none;
-}
-
-.loader-searching {
-     width: 60%;
-     border-bottom: 2px solid white;
-     display: flex;
-     position: absolute;
-     cursor: pointer;
-}
-
-.loader-searching div {
-     width: 20%;
-     position: absolute;
-     /* transition: 3s; */
-     left: 0;
-     bottom: -5px;
-     animation: vehicleRun 3.5s linear;
-}
-
-@keyframes vehicleRun {
-     0% {
-          left: 0;
-     }
-
-     100% {
-          left: 80%;
-     }
-}
-
-.loader-searching img {
-     width: 100%;
 }
 
 #floor {
@@ -532,7 +481,6 @@ a {
 .apply_promo button:hover, .pay button:hover {
      background: #c92323;
 }
-
 
 
 /* ! About */
