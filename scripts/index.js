@@ -336,7 +336,7 @@ const createReceipt = (data) => {
 	//Date
 	const month = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 	const currDate = new Date();
-	date.innerHTML = `${currDate.getDate()}.${month[currDate.getMonth()]}.${currDate.getFullYear()}`;
+	date.innerHTML = `${currDate.getDate()} ${month[currDate.getMonth()]}, ${currDate.getFullYear()}`;
 
 	// Destructuring
 	const { floor, slot: { vehicle: { owner, reg_n, type }, slotNumber }, lane } = data
@@ -349,12 +349,32 @@ const createReceipt = (data) => {
 	Slot.innerHTML = slotNumber;
 
 	// pricing
+<<<<<<< HEAD
 	price.innerHTML =
 		//PromoCode
 		promo_btn.onclick = () => {
 			if (promo.value == "PABLO30") {
 				price.innerHTML = `${price * .7}`;
 			}
+=======
+	const pricing = {
+		Bike : 10,
+		Car : 50,
+		Jeep : 80,
+		Bus : 120,
+		Truck : 150
+	}
+
+	price.innerHTML = `₹ ${pricing[type]}.00/-`
+	
+	pay.innerHTML = `₹ ${pricing[type]}.00/-`
+	
+	//PromoCode
+	promo_btn.onclick = () => {
+		if (promo.value == "PABLO30") {
+			price.innerHTML = `₹ ${pricing[type] * .7}.00/-`;
+			pay.innerHTML = `₹ ${pricing[type] * .7}.00/-`
+>>>>>>> 980d2b43581905e636857a7d5ebf47e7ed83efd6
 		}
 
 	// <<<<<<< Updated upstream
@@ -367,6 +387,10 @@ const createReceipt = (data) => {
 		document.querySelector('.promo-code').style.display = "none"
 	}
 
+<<<<<<< HEAD
 
 	// >>>>>>> Stashed changes
+=======
+	
+>>>>>>> 980d2b43581905e636857a7d5ebf47e7ed83efd6
 };
