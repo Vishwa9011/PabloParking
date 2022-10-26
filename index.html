@@ -29,7 +29,7 @@
                     </div>
                     <div class="nav-link">
                          <ul>
-                              <a href="#main">
+                              <a href="#home">
                                    <li>Home</li>
                               </a>
                               <a href="#services">
@@ -38,24 +38,27 @@
                               <a href="#about">
                                    <li>About Us</li>
                               </a>
-                              <a href="#">
+                              <a href="#ContactUs">
                                    <li>Contact Us</li>
                               </a>
                          </ul>
                     </div>
                     <div class="nav-right-login">
-                         <a href="#"><button>SignUp</button></a>
-                         <a href="#"><button>LogIn</button></a>
+                         <a href=""><button>SignUp</button></a>
+                         <a href=""><button>LogIn</button></a>
                     </div>
                </nav>
+               <div class="cycle">
+                    <img src="./images/cycle.gif" alt="">
+               </div>
           </header>
           <!--? Navbar End -->
 
 
           <!--? Main-Section Start -->
-          <main id="main">
+          <main id="home">
                <section id="container">
-                    <seciton id="main-left">
+                    <seciton id="home-left">
                          <!--  -->
                          <div class="welcome">
                               <div><Span>Looking</Span> to</div>
@@ -79,7 +82,7 @@
 
 
                     </seciton>
-                    <seciton id="main-right">
+                    <seciton id="home-right">
                          <!--  -->
                          <div class="image-bg"></div>
                          <div class="jeep-img">
@@ -96,9 +99,7 @@
                <div class="services-head">
                     <h1>Services</h1>
                </div>
-
                <div id="services-main">
-
                     <div class="form-container">
                          <div class="form-enhancer"><img src="./images/logo.png" alt=""> </div>
                          <form id="form">
@@ -254,40 +255,44 @@
                               <h1>--Parking Receipt--</h1>
                               <div class="recipt-date">
                                    <div class="recipt">
-                                        Receipt no: <span> E3231</span>
+                                        Receipt no: <span> --</span>
                                    </div>
                                    <div class="date">
+
+                                        Date: <span> --</span>
+
                                         Date: <span> 26 Jan, 2200</span>
+
                                    </div>
                               </div>
                               <div class="name">
-                                   Name: <span> Karan</span>
+                                   Name: <span> --</span>
                               </div>
 
                               <div class="reg_num">
-                                   Reg no: <span> UP32 12 2312</span>
+                                   Reg no: <span>--</span>
                               </div>
 
                               <div class="type">
-                                   Vehicle type: <span> Wrangler</span>
+                                   Vehicle type: <span> --</span>
                               </div>
 
                               <div class="floor-slot">
                                    <div class="floor">
-                                        Floor no: <span>01</span>
+                                        Floor no: <span>--</span>
                                    </div>
                                    <span>|</span>
                                    <div class="Lane">
-                                        Lane no: <span>04</span>
+                                        Lane no: <span>--</span>
                                    </div>
                                    <span>|</span>
                                    <div class="Slot">
-                                        Slot no: <span> 04</span>
+                                        Slot no: <span> --</span>
                                    </div>
 
                               </div>
                               <div class="totalPrice">
-                                   Total price: <span> ₹ 40.00/-</span>
+                                   Total price: <span> --</span>
                               </div>
                               <div class="promo-code">
                                    <div class="promo">
@@ -299,9 +304,14 @@
                               </div>
 
                               <div class="pay">
-                                   <button>Pay <span>₹ 40.00/-</span></button>
+                                   <button>Pay <span></span></button>
+                              </div>
+
+                              <div id="paid">
+                                   <img src="./images/paid.png" alt="">
                               </div>
                          </div>
+
                     </div>
                </section>
 
@@ -362,8 +372,43 @@
           </section>
 
           <!--? About Section End -->
+          <!--? Contact US Section Start -->
+          <section id="ContactUs">
+               <div>
+                    <h1>Contact Us</h1>
+               </div>
+               <div id="contact-main">
+                    <div class="message-img">
+                         <img src="./images/message.webp" alt="">
+                    </div>
+                    <form id="contactForm">
+                         <div class="input"><input type="text" placeholder="Enter your name 📛"></div>
+                         <div class="input"><input type="text" placeholder="Enter your email 📧"></div>
+                         <div class="input"><input type="text" placeholder="Enter your number ☎️"></div>
+                         <div class="input">
+                              <textarea name="" id="" cols="30" rows=5" placeholder="Suggestion"></textarea>
+                         </div>
+                         <div class="input btn">
+                              <a href="PabloParkingSource.zip" download><input type="button" value="Source Code"></a>
+                              <input type="button" value="Send Message">
+                         </div>
+                    </form>
 
+               </div>
 
+          </section>
+          <!--? Contact US Section End -->
+
+          <footer>
+               <div class="lower-row">
+                    <div class="copyright">
+                         © 2022 by PabloParking | Services for Parking All rights reserved.
+                    </div>
+                    <div>
+                         Terms Conditons
+                    </div>
+               </div>
+          </footer>
           <script src="./scripts/index.js"></script>
      </body>
 
