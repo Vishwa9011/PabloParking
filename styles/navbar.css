@@ -11,6 +11,8 @@ header {
      top: 0;
      left: 0;
      z-index: 999;
+     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+     overflow: hidden;
 }
 
 #navbar {
@@ -20,6 +22,30 @@ header {
      margin: auto;
      justify-content: space-between;
      align-items: center;
+     /* border-bottom: 1px solid red; */
+     position: relative;
+}
+
+.cycle {
+     width: 35px;
+     position: absolute;
+     top: 50%;
+     animation: cycle 15s linear infinite;
+}
+
+@keyframes cycle {
+     0% {
+          left: 0;
+     }
+
+     100% {
+          left: 100%;
+     }
+}
+
+.cycle img {
+     transform: rotateY(180deg);
+     width: 100%;
 }
 
 .nav-logo {

@@ -313,7 +313,9 @@ const clearVisualization = () => {
 // TODO ==>  Implementation for Creating the Recipt Data
 const createReceipt = (data) => {
 	console.log("data: ", data);
-
+	document.querySelector('#paid').style.display = "none"
+	document.querySelector('.pay').style.display = "block"
+	document.querySelector('.promo-code').style.display = "flex"
 	// Dom Manupulataion For the receipt
 	const receipt_no = document.querySelector(".recipt span");
 	const date = document.querySelector(".date span");
@@ -347,12 +349,24 @@ const createReceipt = (data) => {
 	Slot.innerHTML = slotNumber;
 
 	// pricing
-	price.innerHTML = 
-	//PromoCode
-	promo_btn.onclick = () => {
-		if (promo.value == "PABLO30") {
-			price.innerHTML = `${price * .7}`;
+	price.innerHTML =
+		//PromoCode
+		promo_btn.onclick = () => {
+			if (promo.value == "PABLO30") {
+				price.innerHTML = `${price * .7}`;
+			}
 		}
+
+	// <<<<<<< Updated upstream
+	// =======
+
+	document.querySelector('.pay button').onclick = () => {
+		promo.value = ""
+		document.querySelector('#paid').style.display = "flex"
+		document.querySelector('.pay').style.display = "none"
+		document.querySelector('.promo-code').style.display = "none"
 	}
 
+
+	// >>>>>>> Stashed changes
 };
