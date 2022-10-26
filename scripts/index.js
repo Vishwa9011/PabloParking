@@ -334,7 +334,7 @@ const createReceipt = (data) => {
 	//Date
 	const month = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 	const currDate = new Date();
-	date.innerHTML = `${currDate.getDate()}.${month[currDate.getMonth()]}.${currDate.getFullYear()}`;
+	date.innerHTML = `${currDate.getDate()} ${month[currDate.getMonth()]}, ${currDate.getFullYear()}`;
 
 	// Destructuring
 	const { floor, slot: { vehicle: { owner, reg_n, type }, slotNumber }, lane } = data
