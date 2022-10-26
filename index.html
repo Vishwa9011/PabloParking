@@ -96,6 +96,7 @@
                <div class="services-head">
                     <h1>Services</h1>
                </div>
+
                <div id="services-main">
 
                     <div class="form-container">
@@ -115,23 +116,41 @@
                               <div class="input-box">
                                    <input type="text" id="reg_num" placeholder="Registeration number">
                               </div>
+
                               <div>
                                    <a href="#parking">
-                                        <input type="button" value="Find Slot" onclick="findSlot()">
-                                        <img id="tukur" src="./images/giphy.webp" />
+                                        <button type="button" value="Find Slot" onclick="findSlot()">
+                                             <span>
+                                                  Find Slot
+                                             </span>
+                                             <img id="tukur" src="./images/giphy.webp" />
+                                        </button>
                                    </a>
                               </div>
                          </form>
                     </div>
+                    <div class="arrow-of-services">
+                         <div class="arrow-services">
+                              <img src="./images/red-arrow.webp" alt="">
+                         </div>
+                    </div>
                     <div class="parking-gif">
-                         <img src="https://cdn.dribbble.com/users/2118336/screenshots/12113942/media/ec72a5e052af7792a64a1f3fd156af28.gif"
-                              alt="">
+                         <!-- <img src="https://cdn.dribbble.com/users/2118336/screenshots/12113942/media/ec72a5e052af7792a64a1f3fd156af28.gif"
+                              alt=""> -->
+                         <img src="./images/Parking.png" alt="">
                     </div>
                </div>
                <!--  -->
 
                <!--  -->
                <section id="parking">
+                    <div class="overlay-searching">
+                         <div class="loader-searching" id="loader-searching">
+                              <div>
+                                   <img src="./images/animated-car-image-0252.gif" alt="">
+                              </div>
+                         </div>
+                    </div>
                     <div id="floor">
                          <div id="lane1" class="lane">
                               <div class="slot" id="slot-1">
@@ -243,8 +262,8 @@
                               </div>
                               <div class="name">
                                    Name: <span> Karan</span>
-
                               </div>
+
                               <div class="reg_num">
                                    Reg no: <span> UP32 12 2312</span>
                               </div>
@@ -285,6 +304,7 @@
                          </div>
                     </div>
                </section>
+
           </section>
           <!--? Servies Section End -->
 
@@ -340,6 +360,7 @@
                     </div>
                </div>
           </section>
+
           <!--? About Section End -->
 
 

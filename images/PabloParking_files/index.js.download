@@ -1,4 +1,4 @@
-// ? ==> Creating Vehicle Class
+// ? Vehicle
 class Vehicle {
 	constructor(owner, reg_n, type) {
 		this.owner = owner;
@@ -7,41 +7,41 @@ class Vehicle {
 	}
 }
 
-// ? ==> Extending the from Vehicle Class car
+// ? car
 class Car extends Vehicle {
 	constructor(owner, reg_n) {
 		super(owner, reg_n, "Car");
 	}
 }
 
-//? ==> Extending the from Vehicle Class Jeep
+//? Jeep
 class Jeep extends Vehicle {
 	constructor(owner, reg_n) {
 		super(owner, reg_n, "Jeep");
 	}
 }
-// ? ==> Extending the from Vehicle Class Bus
+// ? Bus
 class Bus extends Vehicle {
 	constructor(owner, reg_n) {
 		super(owner, reg_n, "Bus");
 	}
 }
 
-// ? ==> Extending the from Vehicle Class Bike
+// ? Bike
 class Bike extends Vehicle {
 	constructor(owner, reg_n) {
 		super(owner, reg_n, "Bike");
 	}
 }
 
-//? ==> Extending the from Vehicle Class Truck
+//? Truck
 class Truck extends Vehicle {
 	constructor(owner, reg_n) {
 		super(owner, reg_n, "Truck");
 	}
 }
 
-// TODO ==> Creating the vehicleSlot component Class
+// TODO vehicleSlot
 class VehicleSlot {
 	constructor(vehicleType, slotNumber) {
 		this.vehicleType = vehicleType;
@@ -50,7 +50,7 @@ class VehicleSlot {
 	}
 }
 
-// TODO ==> Creating the parkingLane component Class
+// TODO parkingLane
 class ParkingLane {
 	// #maxSlots;
 	constructor(vehicleType, maxSlots, laneNumber) {
@@ -63,7 +63,7 @@ class ParkingLane {
 		}
 	}
 }
-// TODO ==> Creating the ParkingFloor component Class
+// TODO ParkingFloor component
 class ParkingFloor {
 	constructor(floorNumber, maxLane) {
 		this.floorNumber = floorNumber;
@@ -94,7 +94,7 @@ class ParkingFloor {
 	// addLane() {}
 }
 
-// TODO ==> make the pabloParking class
+// ToDO => make the pabloParking class
 class PabloParking {
 	constructor(maxFloor) {
 		this.totalFloor = [];
@@ -104,7 +104,7 @@ class PabloParking {
 		}
 	}
 }
-// TODO ==> ----------------------------findSLoFromClass----------------------------
+// * ----------------------------findSLoFromClass----------------------------
 function findSlotForClass(vehicleType, vehicle) {
 	for (let floor of pabloParking.totalFloor) {
 		for (let lane of floor.floor) {
@@ -122,12 +122,10 @@ function findSlotForClass(vehicleType, vehicle) {
 			}
 		}
 	}
-
-	// IF all condition will false then return
 	return false;
 }
 
-//TODO ==> -----------------BookSlot()-----------------
+//* ------------------------------------BookSlot()------------------------------------
 
 function bookSlot(vehicle) {
 	let find = findSlotForClass(vehicle.type, vehicle);
@@ -142,7 +140,7 @@ function bookSlot(vehicle) {
 	}
 }
 
-//TODO ==> ------------DOM manupulataion------------
+//* -------------------------------DOM manupulataion-------------------------------
 const vehicleType = document.querySelector("#vehicleType");
 const vehicleList = document.querySelector("#vehicle");
 let type;
@@ -170,12 +168,12 @@ vehicleList.onclick = (event) => {
 	// console.log("type: ", type);
 };
 
-// TODO ==> ------------------PabloParking intialized------------------
+//* ------------------PabloParking intialized------------------
 let pabloParking =
 	JSON.parse(localStorage.getItem("pabloParking")) || new PabloParking(4);
 console.log("pabloParking: ", pabloParking);
 
-// TODO ==> ----------------- FindSlot function from DOM-----------------
+// *--------------------- FindSlot function from DOM---------------------
 const findSlot = () => {
 	const form = document.querySelector("form");
 	const name = form.name.value;
@@ -183,7 +181,7 @@ const findSlot = () => {
 	const vehicle_type = type;
 
 	let temp = [name, reg_num, vehicle_type];
-	// console.log("temp: ", temp);
+	console.log("temp: ", temp);
 	if (temp.includes(undefined) || temp.includes("")) {
 		alert();
 		return;
@@ -207,30 +205,18 @@ const findSlot = () => {
 			vehicle = new Truck(name, reg_num);
 			break;
 	}
-
-	// Calling bookSlot()
 	let val = bookSlot(vehicle);
-
-	// Overlay from dom element
-	document.querySelector(".overlay-searching").style.display = "flex";
-	clearInterval(defaultVisual);
-
-	// SetTimeOut for show the parking visualization
-	setTimeout(() => {
-		document.querySelector(".overlay-searching").style.display = "none";
-		colorBookedSlots(val);
-	}, 3500);
-
-	// Setting the Data into localStorage to retreve past data
+	colorBookedSlots(val);
 	localStorage.setItem("pabloParking", JSON.stringify(pabloParking));
 	// console.log({ name, reg_num, vehicle_type });
 };
 
-// TODO ==> VisualizationParking System for Particular Lane
-const visualSearchParkingPlace = (laneNumber, slotNumber) => {
+// TODO ==>
+
+const visualSearchParkingPlace = (laneNumber, slotNumber, vehicleImg) => {
 	let lane = document.querySelector(`#lane${laneNumber}`);
 	lane = lane.children;
-	// console.log({ lane });
+	console.log({ lane });
 	let count = 0;
 	let id = setInterval(() => {
 		if (count > 0) {
@@ -250,28 +236,20 @@ const visualSearchParkingPlace = (laneNumber, slotNumber) => {
 		if (countlane == slotNumber) {
 			clearInterval(id1);
 		}
-	}, 700);
+	}, 800);
 };
 
-// TODO ==> --------------Make Beautiful GIF Look--------------
-let defaultVisual = setInterval(() => {
-	let val = Math.ceil(Math.random() * 5);
-	let val2 = Math.floor(Math.random() * 5);
-	visualSearchParkingPlace(Math.abs(val - val2) || 1, val);
-	clearVisualization();
-}, 3500);
+// visualSearchParkingPlace(4, 1, "Jeep");
 
-// TODO==> -----------------color BookedSlots-----------------
+//*  -------------------------color BookedSlots-------------------------
+
 const colorBookedSlots = (data) => {
-	// Cleaning the parkingFloor
 	clearVisualization();
 
-	//Debugging
-	// console.log("data: ", data);
-	// console.log("data: ", data.floor);
-	// console.log("pabloParking: ", pabloParking.totalFloor[0]);
-
-	// we are append img of slot insteead vehicleType slot which is given by the user
+	console.log("data: ", data);
+	console.log("data: ", data.floor);
+	console.log("pabloParking: ", pabloParking.totalFloor[0]);
+	0;
 	let countlane = 1;
 	for (let lane of pabloParking.totalFloor[data.floor - 1].floor) {
 		let countslot = 1;
@@ -281,78 +259,22 @@ const colorBookedSlots = (data) => {
 				let temp = document.querySelector(`#lane${countlane}`);
 				temp = temp.children[countslot - 1].childNodes[1];
 				temp.style.opacity = "1";
-				// console.log(temp);
+				console.log(temp);
 			}
 			countslot++;
 		}
 		countlane++;
 	}
-	// Invoking the visualSearchParkingPlace for the given type of vehicle
 	visualSearchParkingPlace(
 		data.lane,
 		data.slot.slotNumber,
 		data.slot.vehicleType,
 	);
-
-	// Creating Receipt for the User
-	createReceipt(data);
 };
 
-//TODO ==> Clear visualization for clear the parking and then showing the data
+// Clear visualization for clear the parking and then showing the data
 const clearVisualization = () => {
-	let floor = document.querySelector("#floor");
-	// console.log(floor.children);
-	for (let lane of floor.children) {
-		for (let slot of lane.children) {
-			slot.children[0].style.opacity = ".2";
-			slot.style.background = "white";
-		}
-	}
+	let park = document.querySelector("#parking");
+	console.log(park);
 };
-
-// TODO ==>  Implementation for Creating the Recipt Data
-const createReceipt = (data) => {
-	console.log("data: ", data);
-
-	// Dom Manupulataion For the receipt
-	const receipt_no = document.querySelector(".recipt span");
-	const date = document.querySelector(".date span");
-	const name = document.querySelector(".name span");
-	const reg_num = document.querySelector(".reg_num span");
-	const type_r = document.querySelector(".type span");
-	const floor_r = document.querySelector(".floor span");
-	const Lane = document.querySelector(".Lane span");
-	const Slot = document.querySelector(".Slot span");
-	const promo = document.querySelector(".promo input");
-	const price = document.querySelector(".totalPrice span");
-	const promo_btn = document.querySelector(".apply_promo button");
-	const pay = document.querySelector(".pay button > span");
-
-	// Receipt
-	receipt_no.innerHTML = `PP${Math.floor(Math.random() * 1000)}`;
-
-	//Date
-	const month = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-	const currDate = new Date();
-	date.innerHTML = `${currDate.getDate()}.${month[currDate.getMonth()]}.${currDate.getFullYear()}`;
-
-	// Destructuring
-	const { floor, slot: { vehicle: { owner, reg_n, type }, slotNumber }, lane } = data
-
-	name.innerHTML = owner;
-	reg_num.innerHTML = reg_n;
-	type_r.innerHTML = type;
-	floor_r.innerHTML = floor;
-	Lane.innerHTML = lane;
-	Slot.innerHTML = slotNumber;
-
-	// pricing
-	price.innerHTML = 
-	//PromoCode
-	promo_btn.onclick = () => {
-		if (promo.value == "PABLO30") {
-			price.innerHTML = `${price * .7}`;
-		}
-	}
-
-};
+clearVisualization();
