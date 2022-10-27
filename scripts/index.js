@@ -349,36 +349,13 @@ const createReceipt = (data) => {
 	Slot.innerHTML = slotNumber;
 
 	// pricing
-<<<<<<< HEAD
 	price.innerHTML =
 		//PromoCode
 		promo_btn.onclick = () => {
 			if (promo.value == "PABLO30") {
 				price.innerHTML = `${price * .7}`;
 			}
-=======
-	const pricing = {
-		Bike : 10,
-		Car : 50,
-		Jeep : 80,
-		Bus : 120,
-		Truck : 150
-	}
-
-	price.innerHTML = `₹ ${pricing[type]}.00/-`
-	
-	pay.innerHTML = `₹ ${pricing[type]}.00/-`
-	
-	//PromoCode
-	promo_btn.onclick = () => {
-		if (promo.value == "PABLO30") {
-			price.innerHTML = `₹ ${pricing[type] * .7}.00/-`;
-			pay.innerHTML = `₹ ${pricing[type] * .7}.00/-`
->>>>>>> 980d2b43581905e636857a7d5ebf47e7ed83efd6
 		}
-
-	// <<<<<<< Updated upstream
-	// =======
 
 	document.querySelector('.pay button').onclick = () => {
 		promo.value = ""
@@ -387,10 +364,7 @@ const createReceipt = (data) => {
 		document.querySelector('.promo-code').style.display = "none"
 	}
 
-<<<<<<< HEAD
+}
 
-	// >>>>>>> Stashed changes
-=======
-	
->>>>>>> 980d2b43581905e636857a7d5ebf47e7ed83efd6
-};
+
+
