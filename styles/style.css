@@ -852,6 +852,11 @@ footer {
      bottom: 0;
      left: 0;
      border-radius: 25px;
+
+
+}
+
+.alert-line-start {
      animation: alertEnd 7s linear;
 }
 
@@ -865,19 +870,19 @@ footer {
      }
 }
 
-.success {
+#alert-box.success {
      background: #D1E7DD;
      color: #0F5132;
      display: flex !important;
 }
 
-.danger {
+#alert-box.danger {
      background: #F8D7DA;
      color: #842029;
      display: flex !important;
 }
 
-.welcomeGreet {
+#alert-box.welcomeGreet {
      background: #fff;
      color: #181818;
      letter-spacing: 2px !important;

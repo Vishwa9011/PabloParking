@@ -458,45 +458,57 @@ const SendMessage = () => {
 	const email = form.email.value;
 	const phone = form.mobNo.value;
 	const suggestion = form.suggestion.value;
-
+	let firstVal;
 	let validateMsg = [name, email, phone, suggestion];
 	if (validateMsg.includes(undefined) || validateMsg.includes("")) {
-		let message = `⚠️ ${name ? name.split(" ")[0] + "," : ""} Please fill the all the required fields`
+		firstVal = name.split(" ")[0]
+		let temp = firstVal[0].toUpperCase()
+		firstVal = `${temp}${firstVal.slice(1)}`
+		let message = `⚠️ ${name ? firstVal + "," : ""} Please fill the all the required fields`
 		showAlertBox(message, "danger");
 	} else {
-		let message = `✅ Feedback sent successfully!
-					<br>
-					${name.split(" ")[0]}, Thank you for valuable comment`
+		firstVal = name.split(" ")[0]
+		let temp = firstVal[0].toUpperCase()
+		firstVal = `${temp}${firstVal.slice(1)}`
+
+		let val = firstVal.length > 11 ? "normal" : "nowrap"
+		let message = `<div>✅ Feedback sent successfully!
+					<div style="white-space:${val}">${firstVal}, Thank you for your valuable suggestion</div></div>`
 
 		showAlertBox(message, "success");
 	}
 }
 
-
-
-
-
-
-
-
+let id3;
 // TODO ===> -------Show AlertBox for showPromo-------
 const showAlertBox = (message, messageType) => {
+
+	if (id3) {
+		clearInterval(id3)
+	}
 
 	// DOM element
 	const alertBox = document.querySelector('#alert-box');
 	const msg = document.querySelector('.alert-message p')
 	const closeAlert = document.querySelector(".alert-cross")
+	const alertLine = document.querySelector('.alert-line')
 
 	// removing all class properties from show alert box
 	alertBox.removeAttribute('class')
+	alertLine.classList.remove('alert-line-start')
 
+	// 
+	setTimeout(() => {
+		alertBox.style.right = '2.20%';
+		alertLine.classList.add('alert-line-start')
+		alertBox.classList.toggle(messageType)
+	}, 0)
 	//Applying the feature
-	alertBox.style.right = '2.20%';
-	alertBox.classList.toggle(messageType)
+
 	msg.innerHTML = message;
 
 	// set TimeOut will hide the alert box
-	const id = setTimeout(() => {
+	id3 = setTimeout(() => {
 		alertBox.style.right = "-100%";
 		alertBox.classList.toggle(messageType)
 	}, 7000)
