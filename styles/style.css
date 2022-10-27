@@ -268,7 +268,7 @@ html::-webkit-scrollbar-thumb {
 }
 
 
-a[href="#parking"] button {
+#gotoServicesPage button {
      width: 100%;
      padding: 6px 13px;
      font-size: 16px;
@@ -287,7 +287,7 @@ a[href="#parking"] button {
      align-items: center;
 }
 
-a[href="#parking"] button:hover {
+#gotoServicesPage button:hover {
      background: #ab1111;
 }
 
@@ -367,22 +367,22 @@ a {
      align-items: center;
      background: #181818b6;
      display: none;
+
 }
 
 .loader-searching {
      width: 60%;
-     border-bottom: 2px solid white;
+     border-bottom: 3px solid rgb(229, 225, 225);
      display: flex;
      position: absolute;
-     cursor: pointer;
+     border-radius: 15px;
 }
 
 .loader-searching div {
      width: 20%;
      position: absolute;
-     /* transition: 3s; */
      left: 0;
-     bottom: -5px;
+     bottom: -10px;
      animation: vehicleRun 3.5s linear;
 }
 
@@ -507,8 +507,12 @@ a {
      border-radius: 5px;
      border: none;
      outline: none;
+     text-transform: uppercase;
 }
 
+.promo input::placeholder {
+     text-transform: capitalize;
+}
 
 .apply_promo {
      width: 40%;
@@ -623,7 +627,6 @@ a {
 
 .about-container2 .about-right img {
      width: 100%;
-
 }
 
 
@@ -673,6 +676,10 @@ a {
      color: black
 }
 
+#contactForm .input:first-child>input {
+     text-transform: capitalize;
+}
+
 #contactForm .input input:focus, textarea:focus {
      background: rgb(230, 229, 229);
 }
@@ -693,6 +700,7 @@ a {
      transition: 600ms;
      border: none;
      font-size: 16px;
+     outline: #aaa solid 1px;
 }
 
 #contactForm button:hover {
@@ -703,13 +711,25 @@ a {
      display: flex;
      justify-content: center;
      align-items: center;
-
+     outline: none;
+     border: none;
 }
 
 
 #contactForm a img {
      width: 30px;
      margin-left: 10px;
+}
+
+#github a button {
+     display: flex;
+     justify-content: center;
+     align-items: center;
+}
+
+#github a button img {
+     width: 24px;
+
 }
 
 #contact-main {
@@ -752,4 +772,102 @@ footer {
 .copyright+div:hover {
      text-decoration: underline;
      cursor: pointer;
+}
+
+
+
+/** Alert Box */
+
+#alert-box {
+     min-width: 27%;
+     max-width: 30%;
+     padding: 20px 20px;
+     position: fixed;
+     top: 100px;
+     right: -100%;
+     border-top-left-radius: 15px;
+     border-bottom-right-radius: 15px;
+     z-index: 999;
+     backdrop-filter: blur(1.2px);
+     box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.05) 0px 8px 32px;
+     transform: 2s;
+     font-size: 15px;
+     letter-spacing: .5px;
+     line-height: 27px;
+     display: none;
+}
+
+#alert-box .alert-cross {
+     position: absolute;
+     top: -12px;
+     right: -12px;
+     width: 25px;
+     background: white;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     border-radius: 50%;
+     padding: 3px;
+     background: #c92323;
+     cursor: pointer;
+}
+
+.alert-cross img {
+     width: 100%;
+     filter: invert(100);
+
+}
+
+.alert-message {
+     width: 90%;
+     height: 100%;
+     margin: auto;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+}
+
+.alert-message p {
+     display: flex;
+}
+
+.alert-line {
+     width: 97%;
+     margin: auto;
+     height: 3px;
+     position: absolute;
+     background: #842029;
+     bottom: 0;
+     left: 0;
+     border-radius: 25px;
+     animation: alertEnd 7s linear;
+}
+
+@keyframes alertEnd {
+     0% {
+          width: 100%;
+     }
+
+     100% {
+          width: 0%;
+     }
+}
+
+.success {
+     background: #D1E7DD;
+     color: #0F5132;
+     display: flex !important;
+}
+
+.danger {
+     background: #F8D7DA;
+     color: #842029;
+     display: flex !important;
+}
+
+.welcomeGreet {
+     background: #fff;
+     color: #181818;
+     letter-spacing: 2px !important;
+     display: flex !important;
 }

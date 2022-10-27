@@ -1,3 +1,10 @@
+console.log('💐 Welcome to PabloParking')
+
+setTimeout(() => {
+	let message = `<strong style="font-size:25px">💐</strong> <h3>Welcome to PabloParking</h3>`
+	showAlertBox(message, "welcomeGreet")
+}, 2000)
+
 // ? ==> Creating Vehicle Class
 class Vehicle {
 	constructor(owner, reg_n, type) {
@@ -131,9 +138,14 @@ function findSlotForClass(vehicleType, vehicle) {
 
 function bookSlot(vehicle) {
 	let find = findSlotForClass(vehicle.type, vehicle);
+
+	// if Parking Place not found
 	if (!find) {
-		console.error("We have no slot for vehicle type " + vehicleType);
-	} else {
+		let message = "😔 Sorry! We haven't any slot for your vehicle" + vehicleType;
+		showAlertBox(message, "danger")
+	}
+	// if Parking Place found
+	else {
 		console.log(
 			`${vehicle.owner}, Sir You got Slot for your ${vehicle.type}`,
 		);
@@ -177,6 +189,9 @@ console.log("pabloParking: ", pabloParking);
 
 // TODO ==> ----------------- FindSlot function from DOM-----------------
 const findSlot = () => {
+
+	let gotoServicesPage = document.querySelector('#gotoServicesPage');
+
 	const form = document.querySelector("form");
 	const name = form.name.value;
 	const reg_num = form.reg_num.value;
@@ -185,8 +200,14 @@ const findSlot = () => {
 	let temp = [name, reg_num, vehicle_type];
 	// console.log("temp: ", temp);
 	if (temp.includes(undefined) || temp.includes("")) {
-		alert();
+		gotoServicesPage.removeAttribute("href")
+		let message = "⚠️ Please fill the required fields"
+		showAlertBox(message, "danger")
 		return;
+	} else {
+		// setting the href for parking information
+		gotoServicesPage.setAttribute('href', "#parking")
+		// window.location.href = "#"
 	}
 
 	let vehicle;
@@ -230,7 +251,8 @@ const findSlot = () => {
 const visualSearchParkingPlace = (laneNumber, slotNumber) => {
 	let lane = document.querySelector(`#lane${laneNumber}`);
 	lane = lane.children;
-	// console.log({ lane });
+
+	//checking slot for particular lane number with background color cyan
 	let count = 0;
 	let id = setInterval(() => {
 		if (count > 0) {
@@ -242,6 +264,8 @@ const visualSearchParkingPlace = (laneNumber, slotNumber) => {
 			clearInterval(id);
 		}
 	}, 500);
+
+	// filling the checked box with opacity 1
 	let countlane = 0;
 	let id1 = setInterval(() => {
 		let val = lane[countlane].childNodes[1];
@@ -255,9 +279,15 @@ const visualSearchParkingPlace = (laneNumber, slotNumber) => {
 
 // TODO ==> --------------Make Beautiful GIF Look--------------
 let defaultVisual = setInterval(() => {
+
+	// Generating the random number for lane number and slot number
 	let val = Math.ceil(Math.random() * 5);
 	let val2 = Math.floor(Math.random() * 5);
+
+	//invoking the visualSearchParkingPlace
 	visualSearchParkingPlace(Math.abs(val - val2) || 1, val);
+
+	//setting all slots with opacity .2 to fiill again;
 	clearVisualization();
 }, 3500);
 
@@ -287,6 +317,7 @@ const colorBookedSlots = (data) => {
 		}
 		countlane++;
 	}
+
 	// Invoking the visualSearchParkingPlace for the given type of vehicle
 	visualSearchParkingPlace(
 		data.lane,
@@ -301,7 +332,8 @@ const colorBookedSlots = (data) => {
 //TODO ==> Clear visualization for clear the parking and then showing the data
 const clearVisualization = () => {
 	let floor = document.querySelector("#floor");
-	// console.log(floor.children);
+
+	//setting all the slots to empty wtih opacity .2 and background white
 	for (let lane of floor.children) {
 		for (let slot of lane.children) {
 			slot.children[0].style.opacity = ".2";
@@ -312,10 +344,13 @@ const clearVisualization = () => {
 
 // TODO ==>  Implementation for Creating the Recipt Data
 const createReceipt = (data) => {
-	console.log("data: ", data);
+	// console.log("data: ", data);
+
+	// retrieve the promoCode(hidden) and pay(hidden) div
 	document.querySelector('#paid').style.display = "none"
 	document.querySelector('.pay').style.display = "block"
 	document.querySelector('.promo-code').style.display = "flex"
+
 	// Dom Manupulataion For the receipt
 	const receipt_no = document.querySelector(".recipt span");
 	const date = document.querySelector(".date span");
@@ -341,6 +376,7 @@ const createReceipt = (data) => {
 	// Destructuring
 	const { floor, slot: { vehicle: { owner, reg_n, type }, slotNumber }, lane } = data
 
+	// giving the value to receipt
 	name.innerHTML = owner;
 	reg_num.innerHTML = reg_n;
 	type_r.innerHTML = type;
@@ -357,21 +393,29 @@ const createReceipt = (data) => {
 		Truck: 150
 	}
 
+	// default price (without discount)
 	price.innerHTML = `₹ ${pricing[type]}.00/-`
-
 	pay.innerHTML = `₹ ${pricing[type]}.00/-`
 
-	//PromoCode
+	//PromoCode button
 	promo_btn.onclick = () => {
-		if (promo.value == "PABLO30") {
-			price.innerHTML = `₹ ${pricing[type] * .7}.00/-`;
-			pay.innerHTML = `₹ ${pricing[type] * .7}.00/-`
+		// applying the discount onClick
+		showPromo(promo, price, pay, pricing)
+	}
+
+	// onEnter for promo input
+	promo.onkeypress = (e) => {
+		if (e.key == 'Enter') {
+			// applying discount onEnter
+			showPromo(promo, price, pay, pricing)
 		}
 	}
 
-
+	// Onclick for pay button 
 	document.querySelector('.pay button').onclick = () => {
 		promo.value = ""
+
+		// hiding the promoCode and pay div
 		document.querySelector('#paid').style.display = "flex"
 		document.querySelector('.pay').style.display = "none"
 		document.querySelector('.promo-code').style.display = "none"
@@ -379,4 +423,88 @@ const createReceipt = (data) => {
 }
 
 
+// TODO ==> -------Checking and applying the promoCode valid or not-------
+const showPromo = (promo, price, pay, pricing) => {
+	// if promo is volidated then applying promoCode
+	if (promo.value.toUpperCase() == "PABLO30") {
+		price.innerHTML = `₹ ${pricing[type] * .7}.00/-`;
+		pay.innerHTML = `₹ ${pricing[type] * .7}.00/-`
+		let message = "✅ Congrats! you got 30% OFF"
+		showAlertBox(message, "success")
+		console.log("success")
+	}
+	// if promoCode is wrong and if promo input is blank
+	else {
+		console.log("danger")
 
+		if (promo.value == "") {
+			let message = "⚠️ Please fill the promo code"
+			showAlertBox(message, "danger")
+		} else {
+			let message = "⚠️ Please enter valid promo code"
+			showAlertBox(message, "danger")
+		}
+	}
+	// debugging message
+	// console.log({ promo, price, pay, pricing });
+}
+
+
+// TODO ==> invoking the send message function
+
+const SendMessage = () => {
+	const form = document.querySelector("#contactUsForm");
+	const name = form.name.value;
+	const email = form.email.value;
+	const phone = form.mobNo.value;
+	const suggestion = form.suggestion.value;
+
+	let validateMsg = [name, email, phone, suggestion];
+	if (validateMsg.includes(undefined) || validateMsg.includes("")) {
+		let message = `⚠️ ${name ? name.split(" ")[0] + "," : ""} Please fill the all the required fields`
+		showAlertBox(message, "danger");
+	} else {
+		let message = `✅ Feedback sent successfully!
+					<br>
+					${name.split(" ")[0]}, Thank you for valuable comment`
+
+		showAlertBox(message, "success");
+	}
+}
+
+
+
+
+
+
+
+
+// TODO ===> -------Show AlertBox for showPromo-------
+const showAlertBox = (message, messageType) => {
+
+	// DOM element
+	const alertBox = document.querySelector('#alert-box');
+	const msg = document.querySelector('.alert-message p')
+	const closeAlert = document.querySelector(".alert-cross")
+
+	// removing all class properties from show alert box
+	alertBox.removeAttribute('class')
+
+	//Applying the feature
+	alertBox.style.right = '2.20%';
+	alertBox.classList.toggle(messageType)
+	msg.innerHTML = message;
+
+	// set TimeOut will hide the alert box
+	const id = setTimeout(() => {
+		alertBox.style.right = "-100%";
+		alertBox.classList.toggle(messageType)
+	}, 7000)
+
+	//Close the alert box by click 
+	closeAlert.onclick = () => {
+		alertBox.style.right = "-100%";
+		alertBox.classList.toggle(messageType)
+	}
+
+}

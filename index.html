@@ -9,6 +9,7 @@
           <link rel="stylesheet" type="text/css" href="./styles/style.css">
           <link rel="stylesheet" type="text/css" href="./styles/navbar.css">
           <link rel="preconnect" href="https://fonts.googleapis.com">
+          <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" /> -->
           <link rel="shortcut icon" href="./images/logo.png" type="image/x-icon">
      </head>
 
@@ -44,8 +45,9 @@
                          </ul>
                     </div>
                     <div class="nav-right-login">
-                         <a href=""><button>SignUp</button></a>
-                         <a href=""><button>LogIn</button></a>
+                         <img src="./images/trucGif.gif" alt="">
+                         <!-- <a href=""><button>SignUp</button></a>
+                         <a href=""><button>LogIn</button></a> -->
                     </div>
                </nav>
                <div class="cycle">
@@ -119,7 +121,7 @@
                               </div>
 
                               <div>
-                                   <a href="#parking">
+                                   <a id="gotoServicesPage">
                                         <button type="button" value="Find Slot" onclick="findSlot()">
                                              <span>
                                                   Find Slot
@@ -380,28 +382,34 @@
                     <div id="contactForm">
 
                          <form id="contactUsForm">
-                              <div class="input"><input type="text" placeholder="Enter your name 📛"></div>
-                              <div class="input"><input type="text" placeholder="Enter your email 📧"></div>
-                              <div class="input"><input type="text" placeholder="Enter your number ☎️"></div>
+                              <div class="input"><input title="Please enter your name" id='name' type="text"
+                                        placeholder="Enter your name 📛"></div>
+                              <div class="input"><input title="Please enter the email address" id='email' type="email"
+                                        placeholder="Enter your email 📧"></div>
+                              <div class="input"><input title="Please enter mobile number" id='mobNo' type=" tel"
+                                        placeholder="Enter your number ☎️"></div>
                               <div class="input">
-                                   <textarea name="" id="" cols="30" rows=5" placeholder="Suggestion"></textarea>
+                                   <textarea title="Please write you suggestion" name="" id="suggestion" cols="30"
+                                        rows=5" placeholder="Suggestion ✍️"></textarea>
                               </div>
                          </form>
                          <div class="input btn">
                               <div class="source">
-                                   <div>
+                                   <div title="Click to Checkout the source Code on Github" id="github">
                                         <a href="https://github.com/Vishwa9011/PabloParking" target="_blank">
-                                             <button>Source Code on GitHub</button>
+                                             <button>Source Code on GitHub
+                                                  <img src="./images/github.png" alt="">
+                                             </button>
                                         </a>
                                    </div>
-                                   <div class="download">
+                                   <div class="download" title="Click to Download the Source Code">
                                         <a href="PabloParkingSource.zip" download>
                                              <img src="./images/download.png" alt="">
                                         </a>
                                    </div>
                               </div>
                               <div>
-                                   <button onclick="">Send Message</button>
+                                   <button title="Send Message" onclick="SendMessage()">Send Message</button>
                               </div>
                          </div>
                     </div>
@@ -411,16 +419,30 @@
           </section>
           <!--? Contact US Section End -->
 
+          <!-- ? footer start -->
           <footer>
                <div class="lower-row">
                     <div class="copyright">
-                         © 2022 by PabloParking | Services for Parking All rights reserved.
+                         © 2022 by PabloParking | Services for Parking | All rights reserved.
                     </div>
                     <div>
                          Terms Conditons
                     </div>
                </div>
           </footer>
+          <!-- ? footer end -->
+
+          <!--? Alert window -->
+          <div id="alert-box">
+               <div class="alert-cross">
+                    <img src="./images/close.png" alt="">
+               </div>
+               <div class="alert-message">
+                    <p>please enter valid details please enter valid details </p>
+               </div>
+               <div class="alert-line"></div>
+          </div>
+          <!--? Alert window -->
           <script src="./scripts/index.js"></script>
      </body>
 
