@@ -1,7 +1,7 @@
 console.log('💐 Welcome to PabloParking')
 
 setTimeout(() => {
-	let message = `<strong style="font-size:25px">💐</strong> <h3>Welcome to PabloParking</h3>`
+	let message = `<strong style="font-size:25px">💐</strong> <h4 style="white-space:nowrap">Welcome to PabloParking</h4>`
 	showAlertBox(message, "welcomeGreet")
 }, 2000)
 
