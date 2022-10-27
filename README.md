@@ -14,7 +14,7 @@ PabloParking
 
 #### ✅ 5 storey building
 
-#### ✅ we have 5 plcae for each vehicle on each storey
+#### ✅ we have 5 place for each vehicle on each storey
 
 ####
 
