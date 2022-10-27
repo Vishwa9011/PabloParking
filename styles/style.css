@@ -946,7 +946,7 @@ footer {
 
 }
 
-#investor-mid img {
+#investor-mid .investor-image img {
      transform: rotate(-10deg);
 }
 
