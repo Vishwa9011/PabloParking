@@ -349,13 +349,26 @@ const createReceipt = (data) => {
 	Slot.innerHTML = slotNumber;
 
 	// pricing
-	price.innerHTML =
-		//PromoCode
-		promo_btn.onclick = () => {
-			if (promo.value == "PABLO30") {
-				price.innerHTML = `${price * .7}`;
-			}
+	const pricing = {
+		Bike: 10,
+		Car: 50,
+		Jeep: 80,
+		Bus: 120,
+		Truck: 150
+	}
+
+	price.innerHTML = `₹ ${pricing[type]}.00/-`
+
+	pay.innerHTML = `₹ ${pricing[type]}.00/-`
+
+	//PromoCode
+	promo_btn.onclick = () => {
+		if (promo.value == "PABLO30") {
+			price.innerHTML = `₹ ${pricing[type] * .7}.00/-`;
+			pay.innerHTML = `₹ ${pricing[type] * .7}.00/-`
 		}
+	}
+
 
 	document.querySelector('.pay button').onclick = () => {
 		promo.value = ""
@@ -363,7 +376,6 @@ const createReceipt = (data) => {
 		document.querySelector('.pay').style.display = "none"
 		document.querySelector('.promo-code').style.display = "none"
 	}
-
 }
 
 
