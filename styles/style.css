@@ -862,7 +862,7 @@ footer {
 
 @keyframes alertEnd {
      0% {
-          width: 100%;
+          width: 97%;
      }
 
      100% {
@@ -944,6 +944,10 @@ footer {
      width: 95%;
      border-radius: 50%;
 
+}
+
+#investor-mid img {
+     transform: rotate(-10deg);
 }
 
 .investor-cards:hover .investor-image a>img {

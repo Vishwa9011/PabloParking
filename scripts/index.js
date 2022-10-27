@@ -461,10 +461,8 @@ const SendMessage = () => {
 	let firstVal;
 	let validateMsg = [name, email, phone, suggestion];
 	if (validateMsg.includes(undefined) || validateMsg.includes("")) {
-		firstVal = name.split(" ")[0]
-		let temp = firstVal[0].toUpperCase()
-		firstVal = `${temp}${firstVal.slice(1)}`
-		let message = `⚠️ ${name ? firstVal + "," : ""} Please fill the all the required fields`
+
+		let message = `⚠️ ${name ? name + "," : ""} Please fill the all the required fields`
 		showAlertBox(message, "danger");
 	} else {
 		firstVal = name.split(" ")[0]
