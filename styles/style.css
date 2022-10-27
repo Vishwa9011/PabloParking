@@ -32,38 +32,37 @@ html::-webkit-scrollbar-thumb {
 
 #home {
      width: 100%;
-     height: 100vh;
-
+     height: 92vh;
      background-color: rgb(245, 240, 240);
+     transition: 600ms;
 }
 
 #container {
-     height: 100%;
      width: 95%;
+     height: 100%;
      display: flex;
      margin: auto;
 }
 
 #home-left {
      width: 40%;
-     /* border: 2px solid blue; */
      display: flex;
      flex-direction: column;
      justify-content: center;
-     /* background: url("./images/"); */
 }
 
-
-
 .welcome {
-     /* width: 80%; */
+     width: 80%;
      font-size: 50px;
      font-weight: 800;
+     transition: 600ms;
+     white-space: nowrap;
      /* line-height: 10px; */
 }
 
 .welcome div {
      font-size: 60px;
+     transition: 600ms;
 }
 
 .welcome span {
@@ -73,21 +72,24 @@ html::-webkit-scrollbar-thumb {
 .welcome+div {
      font-size: 1.2rem;
      margin: 20px 0;
+     transition: 600ms;
+     white-space: nowrap;
 }
 
 .app-store {
      width: 100%;
      display: flex;
+     transition: 600ms;
 }
 
-.app-store div {
-     width: fit-content;
+#home-left .app-store div {
+     width: 30%;
+     margin-right: 10px;
 }
 
 .app-store img {
-     width: 140px;
-     height: 46px;
-     margin-right: 10px;
+     width: 100%;
+     height: 50px;
 }
 
 
@@ -158,7 +160,7 @@ html::-webkit-scrollbar-thumb {
      display: flex;
      justify-content: space-between;
      position: relative;
-     height: 80vh
+     height: 80vh;
 }
 
 .form-container {
@@ -343,7 +345,7 @@ a {
 
 #parking {
      width: 100%;
-     height: 85vh;
+     height: 80vh;
      padding: 5px;
      display: flex;
      align-items: center;
@@ -414,13 +416,14 @@ a {
      padding: 5px;
      margin: 5px;
      margin-left: 20px;
+     transition: 600ms;
 }
 
 .slot {
      width: 125px;
      height: 90px;
      margin-top: 10px;
-     transition: 800ms;
+     transition: 600ms;
      display: flex;
      justify-content: center;
      border-top-left-radius: 10px;
@@ -444,17 +447,16 @@ a {
 }
 
 .recipt-container {
-     /* border: 1px solid black; */
-     width: 80%;
+     width: 90%;
      background: url(../images/augustine-wong-3Om4DHcaAc0-unsplash.jpg) no-repeat;
      background-position: center;
      background-size: cover;
      padding: 20px;
      position: relative;
      border-radius: 15px;
+     transition: 600ms;
      box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
-     /* box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px 0px 1px 0px inset;
-     border-top: 15px dotted #ffff; */
+
 }
 
 
@@ -465,7 +467,6 @@ a {
 
 .recipt-container h1 {
      text-align: center;
-
 }
 
 
@@ -582,12 +583,14 @@ a {
 .about-head p:first-child {
      color: #ab1111;
      font-size: 2rem;
+     transition: 600ms;
      font-weight: 600;
 }
 
 .about-head p:last-child {
      font-size: 2rem;
      font-weight: 500;
+     transition: 600ms;
 }
 
 .about-container1, .about-container2 {
@@ -637,11 +640,15 @@ a {
      height: 80vh;
      margin: 65px auto;
      position: relative;
+     display: flex;
+     flex-direction: column;
+     justify-content: space-evenly;
 }
 
 #ContactUs h1 {
      text-align: center;
      font-size: 30px;
+     /* margin-bottom: 50px; */
      color: #df2626;
 }
 
@@ -673,11 +680,13 @@ a {
      outline: none;
      border: 1px solid #aaa;
      font-size: 16px;
-     color: black
+     color: black;
+     transition: 600ms;
 }
 
 #contactForm .input:first-child>input {
      text-transform: capitalize;
+     transition: 600ms;
 }
 
 #contactForm .input input:focus, textarea:focus {
@@ -701,6 +710,7 @@ a {
      border: none;
      font-size: 16px;
      outline: #aaa solid 1px;
+     transition: 600ms;
 }
 
 #contactForm button:hover {
@@ -719,6 +729,7 @@ a {
 #contactForm a img {
      width: 30px;
      margin-left: 10px;
+     transition: 600ms;
 }
 
 #github a button {
@@ -729,6 +740,7 @@ a {
 
 #github a button img {
      width: 24px;
+     transition: 600ms;
 
 }
 
@@ -870,4 +882,135 @@ footer {
      color: #181818;
      letter-spacing: 2px !important;
      display: flex !important;
+}
+
+
+
+/** Investors */
+
+#investors {
+     width: 100%;
+     padding: 10px;
+}
+
+#investors h1 {
+     text-align: center;
+     font-size: 2rem;
+     color: #c92323;
+     margin-bottom: 10px;
+}
+
+
+#investor-container {
+     width: 95%;
+     margin: auto;
+     display: grid;
+     grid-template-columns: repeat(3, 1fr);
+     grid-gap: 60px;
+     justify-content: center;
+     align-items: center;
+     padding: 60px 10px 100px;
+}
+
+#investor-left, #investor-right, #investor-mid {
+     border-radius: 25px;
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     align-items: center;
+     padding: 20px 0;
+     box-shadow: rgba(50, 50, 52, 0.2) 0px 7px 29px 0px;
+     cursor: pointer;
+     transition: 600ms;
+     position: relative;
+}
+
+
+#investor-left:hover, #investor-right:hover, #investor-mid:hover {
+     transform: scale(1.15);
+}
+
+#investor-container .investor-image {
+     width: 50%;
+}
+
+
+#investor-container img {
+     width: 95%;
+     border-radius: 50%;
+
+}
+
+.investor-cards:hover .investor-image a>img {
+     box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+}
+
+.investor-details {
+     width: 100%;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+}
+
+.investor-details p {
+     text-align: center;
+     white-space: nowrap;
+}
+
+.investor-details a {
+     width: 100% !important;
+}
+
+.investors-link {
+     padding: 10px 0;
+     width: 100%;
+     display: flex;
+     justify-content: center;
+}
+
+.red {
+     color: #ab1111;
+}
+
+.fullStack {
+     font-weight: 600;
+     font-style: normal;
+     margin-left: 2px;
+     letter-spacing: .7px;
+     color: #000;
+     transition: 600ms;
+}
+
+.investor-about p:first-child {
+     font-size: 1.5rem;
+     color: #343434;
+     transition: 600ms;
+}
+
+.investor-about p:nth-child(2) {
+     font-style: italic;
+     color: rgb(68, 68, 68);
+     transition: 600ms;
+}
+
+#investor-container .investors-link>div {
+     margin-right: 10px;
+     width: 25px;
+     transition: 600ms;
+     height: 25px;
+}
+
+#investor-container .investors-link>div a {
+     width: 100%;
+     display: flex;
+}
+
+.investors-link a img {
+     width: 100% !important;
+     border-radius: 5px !important;
+}
+
+.investors-link div:first-child a {
+     border-radius: 5px;
+     background: black;
 }

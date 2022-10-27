@@ -1,0 +1,168 @@
+@media only screen and (max-width:1300px) {
+     #navbar ul a li {
+          font-size: 1rem;
+     }
+
+     /* home section */
+     #home-left {
+          transition: 600ms;
+     }
+
+     #home-left .welcome div {
+          font-size: 45px;
+     }
+
+     #home-left .welcome+div {
+          font-size: 1rem;
+          margin: 20px 0;
+     }
+
+     #home-left .app-store img {
+          width: 100%;
+          height: 40px;
+     }
+
+     #parking #floor {
+          width: 65%;
+     }
+
+     #parking #floor .lane {
+          width: 20%;
+     }
+
+     #parking #floor .lane .slot {
+          width: 100%;
+          height: 80px;
+     }
+
+     #parking .parking-recipt {
+          width: 35%;
+     }
+
+     #parking .parking-recipt .recipt-container {
+          width: 90%;
+     }
+
+     .apply_promo button {
+          font-size: 14px;
+     }
+
+     .investor-about p:first-child {
+          font-size: 1.2rem;
+     }
+
+     .fullStack {
+          font-size: 1rem;
+     }
+
+
+     .investor-about p:nth-child(2) {
+          font-size: .8rem;
+     }
+
+
+}
+
+
+
+@media only screen and (max-width: 1150px) {
+     .investor-about p:nth-child(2) {
+          font-size: .7rem;
+     }
+
+     .fullStack {
+          display: block;
+          font-size: 1rem;
+     }
+
+     #investor-container .investors-link>div {
+          width: 20px;
+          height: 20px;
+     }
+
+}
+
+
+
+
+@media only screen and (max-width:1024px) {
+
+     #home-left .welcome div {
+          font-size: 40px;
+     }
+
+     #home-left .welcome+div {
+          font-size: .8rem;
+          margin: 20px 0;
+     }
+
+
+
+     #parking #floor .lane .slot {
+          height: 65px;
+     }
+
+
+     #parking .parking-recipt .recipt-container {
+          width: 90%;
+          font-size: 14px;
+     }
+
+     .services-head {
+          font-size: 1.4rem;
+     }
+
+     .recipt-container span {
+          font-size: 15px;
+     }
+
+     .apply_promo button {
+          font-size: 14px;
+     }
+
+     .about-head p:first-child {
+          font-size: 1.5rem;
+     }
+
+     .about-head p:last-child {
+          font-size: 1.5rem;
+     }
+
+     .about-right h1, .about-container2 .about-left h1 {
+          font-size: 1.1rem;
+     }
+
+     .about-container2 p, .about-container1 p {
+          font-size: .9rem;
+          line-height: 20px;
+     }
+
+     #ContactUs h1 {
+          font-size: 1.5rem;
+     }
+
+     #contactUsForm .input input {
+          font-size: 14px;
+          padding: 4px 10px;
+          ;
+     }
+
+     #contactForm .btn img {
+          width: 20px;
+     }
+
+     #contactForm button {
+          font-size: 14px;
+          padding: 4px 10px;
+     }
+
+     .fullStack {
+          display: block;
+          font-size: .8rem;
+     }
+
+     .investor-about p:first-child {
+          font-size: 1rem;
+     }
+
+}
