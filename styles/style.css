@@ -679,15 +679,37 @@ a {
 
 #contactForm .btn {
      width: 100%;
-     text-align: right;
+     display: flex;
+     justify-content: space-between;
 }
 
-#contactForm input[type="button"] {
-     width: fit-content;
+#contactForm button {
      cursor: pointer;
      background: rgb(35, 86, 228);
      color: white;
+     padding: 6px 13px;
+     border-radius: 5px;
+     outline: none;
+     transition: 600ms;
+     border: none;
+     font-size: 16px;
+}
 
+#contactForm button:hover {
+     background: #b92727;
+}
+
+.source, .download a {
+     display: flex;
+     justify-content: center;
+     align-items: center;
+
+}
+
+
+#contactForm a img {
+     width: 30px;
+     margin-left: 10px;
 }
 
 #contact-main {
