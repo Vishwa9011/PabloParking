@@ -111,6 +111,8 @@ class PabloParking {
 		}
 	}
 }
+
+
 // TODO ==> ----------------------------findSLoFromClass----------------------------
 function findSlotForClass(vehicleType, vehicle) {
 	for (let floor of pabloParking.totalFloor) {
@@ -144,6 +146,7 @@ function bookSlot(vehicle) {
 		let message = "😔 Sorry! We haven't any slot for your vehicle" + vehicleType;
 		showAlertBox(message, "danger")
 	}
+
 	// if Parking Place found
 	else {
 		console.log(
@@ -198,6 +201,7 @@ const findSlot = () => {
 	const vehicle_type = type;
 
 	let temp = [name, reg_num, vehicle_type];
+
 	// console.log("temp: ", temp);
 	if (temp.includes(undefined) || temp.includes("")) {
 		gotoServicesPage.removeAttribute("href")
@@ -281,8 +285,8 @@ const visualSearchParkingPlace = (laneNumber, slotNumber) => {
 let defaultVisual = setInterval(() => {
 
 	// Generating the random number for lane number and slot number
-	let val = Math.ceil(Math.random() * 5);
-	let val2 = Math.floor(Math.random() * 5);
+	let val = Math.ceil(Math.random() * 5); // max =5
+	let val2 = Math.floor(Math.random() * 5); //max ==>4
 
 	//invoking the visualSearchParkingPlace
 	visualSearchParkingPlace(Math.abs(val - val2) || 1, val);
@@ -332,7 +336,6 @@ const colorBookedSlots = (data) => {
 //TODO ==> Clear visualization for clear the parking and then showing the data
 const clearVisualization = () => {
 	let floor = document.querySelector("#floor");
-
 	//setting all the slots to empty wtih opacity .2 and background white
 	for (let lane of floor.children) {
 		for (let slot of lane.children) {
@@ -431,12 +434,11 @@ const showPromo = (promo, price, pay, pricing) => {
 		pay.innerHTML = `₹ ${pricing[type] * .7}.00/-`
 		let message = "✅ Congrats! you got 30% OFF"
 		showAlertBox(message, "success")
-		console.log("success")
+		// console.log("success")
 	}
 	// if promoCode is wrong and if promo input is blank
 	else {
-		console.log("danger")
-
+		// console.log("danger")
 		if (promo.value == "") {
 			let message = "⚠️ Please fill the promo code"
 			showAlertBox(message, "danger")
@@ -458,22 +460,26 @@ const SendMessage = () => {
 	const email = form.email.value;
 	const phone = form.mobNo.value;
 	const suggestion = form.suggestion.value;
+
 	let firstVal;
 	let validateMsg = [name, email, phone, suggestion];
+	//validating the required fields
 	if (validateMsg.includes(undefined) || validateMsg.includes("")) {
-
-		let message = `⚠️ ${name ? name + "," : ""} Please fill the all the required fields`
+		let message = `⚠️ ${name ? name.split(" ")[0] + "," : ""} Please fill the all the required fields`
 		showAlertBox(message, "danger");
 	} else {
 		firstVal = name.split(" ")[0]
 		let temp = firstVal[0].toUpperCase()
 		firstVal = `${temp}${firstVal.slice(1)}`
-
+		//
 		let val = firstVal.length > 11 ? "normal" : "nowrap"
 		let message = `<div>✅ Feedback sent successfully!
 					<div style="white-space:${val}">${firstVal}, Thank you for your valuable suggestion</div></div>`
-
 		showAlertBox(message, "success");
+		form.name.value = "";
+		form.email.value = "";
+		form.mobNo.value = "";
+		form.suggestion.value = "";
 	}
 }
 
@@ -500,7 +506,7 @@ const showAlertBox = (message, messageType) => {
 		alertBox.style.right = '2.20%';
 		alertLine.classList.add('alert-line-start')
 		alertBox.classList.toggle(messageType)
-	}, 0)
+	})
 	//Applying the feature
 
 	msg.innerHTML = message;
