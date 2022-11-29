@@ -139,32 +139,6 @@ header {
      width: 30%;
 }
 
-/* 
-.nav-right-login>a>button {
-     width: 100px;
-     letter-spacing: 1px;
-     border: none;
-     border-radius: 5px;
-     font-weight: 600;
-     padding: 6px 8px;
-     font-size: 17px;
-     background: transparent;
-     cursor: pointer;
-     color: black;
-     transition: 800ms all ease;
-}
-
-.nav-right-login>a:not(:first-child)>button {
-     padding-left: 5px;
-     background: rgb(23, 80, 236);
-     color: white;
-}
-
-.nav-right-login>a>button:hover {
-     background: rgb(233, 231, 229);
-
-} */
-
 .nav-right-login>a:not(:first-child)>button:hover {
      background: #d32e2e;
 }
